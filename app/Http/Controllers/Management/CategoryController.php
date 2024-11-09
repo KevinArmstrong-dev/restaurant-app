@@ -38,6 +38,7 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->name;
         $category->save();
+        $request->session()->flash('status',$request->name. ' is saved successfully');
         return (redirect('/management/category'));
     }
 

@@ -19,6 +19,13 @@
                 <i class="fas fa-plus"></i> Create Category
             </a>
             <hr>
+            @if(Session()->has('status'))
+                <div class="alert alert-success alert-dismissible fade show">
+                    {{ Session()->get('status') }}
+                    <button type="button" class="close" data-dismiss="alert">X</button>
+                </div>
+            @endif
+
         </div>
     </div>
 </div>
