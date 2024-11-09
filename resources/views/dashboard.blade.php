@@ -2,7 +2,7 @@
     <x-slot name="header">
   
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-        <i class="fa-solid fa-utensils"></i> {{ __('Main Functions') }}
+            {{ __('Main Functions') }}
         </h2>
     </x-slot>
 
