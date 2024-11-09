@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Management\CategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,5 +21,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/management', function() {
      return view('management.index');
     });
+    
+Route::resource('/management/category',CategoryController::class);
 
 require __DIR__.'/auth.php';

@@ -3,7 +3,7 @@
 <div class="container mx-auto px-4">
     <div class="flex justify-center">
         <!-- Sidebar -->
-        <div class="w-full md:w-1/3 lg:w-1/4 p-4">
+        <div class="col-md-4">
             <div class="bg-white shadow-md rounded-lg">
                 <a href="/management/category" class="block p-4 text-gray-700 hover:bg-gray-100"><i class="fas fa-bars"></i>  Category</a>
                 <a href="#" class="block p-4 text-gray-700 hover:bg-gray-100"><i class="fas fa-burger"></i>  Menu</a>
@@ -13,8 +13,12 @@
         </div>
 
         <!-- Main Content -->
-        <div class="w-full md:w-2/3 lg:w-3/4 p-4">
-            Content
+        <div class="col-md-8">
+            <i class="fa-solid fa-align-justify"></i> Category
+            <a href="/management/category/create" class="btn btn-success btn-sm float-right">
+                <i class="fas fa-plus"></i> Create Category
+            </a>
+            <hr>
         </div>
     </div>
 </div>
