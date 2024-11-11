@@ -6,7 +6,7 @@
         @include('management.inc.sidebar')
         <!-- Main Content -->
         <div class="col-md-8">
-            <i class="fa-solid fa-align-justify"></i> Create a Category
+            <i class="fa-solid fa-align-justify"></i> Edit a Category
             <hr>
             @if($errors->any())
                 <div class="alert alert-danger">
@@ -19,13 +19,14 @@
                     </ul>
                 </div>
             @endif
-            <form action="/management/category" method="POST">
+            <form action="/management/category/{{$category->id}}" method="POST">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                     <label for="categoryName">Category Name </label>
-                    <input type="text" name="name" class="form-control" placeholder="Category ....."/>
+                    <input type="text" name="name" class="form-control" value="{{$category->name}}" placeholder="Category ....."/>
                 </div>
-                <button type="submit" class="btn btn-primary">Save </button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

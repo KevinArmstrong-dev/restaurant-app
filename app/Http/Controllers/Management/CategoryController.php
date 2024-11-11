@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('management.category');
+        $categories = Category::paginate(5);
+        return view('management.category')->with('categories',$categories);
     }
 
     /**
@@ -30,7 +32,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories|max:255'
+        ]);
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        $request->session()->flash('status',$request->name. ' is saved successfully');
+        return (redirect('/management/category'));
     }
 
     /**
@@ -46,7 +55,8 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $category = Category::find($id);
+        return view('management.editCategory')->with('category',$category);
     }
 
     /**
@@ -54,7 +64,15 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories|max:255'
+        ]);
+
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+        $request->session()->flash('status',$request->name. ' is updated successfully');
+        return (redirect('/management/category'));
     }
 
     /**
@@ -62,6 +80,8 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Category::destroy($id);
+        Session()->flash('status','Category deleted successfully');
+        return (redirect('/management/category'));
     }
 }
