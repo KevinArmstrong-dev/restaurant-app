@@ -7,8 +7,8 @@
         <!-- Main Content -->
         <div class="col-md-8">
             <i class="fa-solid fa-align-justify"></i> Menu
-            <a href="/management/category/create" class="btn btn-success btn-sm float-right">
-                <i class="fas fa-plus"></i> Create Category
+            <a href="/management/menu/create" class="btn btn-success btn-sm float-right">
+                <i class="fas fa-plus"></i> Create Menu
             </a>
             <hr>
             @if(Session()->has('status'))
