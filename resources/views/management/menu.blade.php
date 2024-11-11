@@ -24,6 +24,18 @@
                             ID
                         </th>
                         <th scope="col">
+                            Name
+                        </th>
+                        <th scope="col">
+                            Price
+                        </th>
+                        <th scope="col">
+                            Picture
+                        </th>
+                        <th scope="col">
+                            Description
+                        </th>
+                        <th scope="col">
                             Category
                         </th>
                         <th scope="col">
@@ -35,7 +47,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                
+                @foreach($menus as $menu)
+                    <tr>
+                        <td>{{$menu->id}}</td>
+                        <td>{{$menu->name}}</td>
+                        <td>{{$menu->price}}</td>
+                        <td>
+                            <img src="{{asset('menu_images')}}/{{$menu->image}}" 
+                            alt="{{$menu->name}}" width="120px" height="120px" class="img-thumbnail"
+                            />
+                        </td>
+                        <td>{{$menu->description}}</td>
+                        <td>{{$menu->category->name}}</td>
+                        <td>{{$menu->id}}</td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>

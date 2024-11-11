@@ -19,7 +19,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/management/category" method="POST">
+            <form action="/management/menu" method="POST" enctype="multipart/form-data">
             @csrf
                     <div class="form-group">
                         <label for="menuName">Menu Name</label>
@@ -58,7 +58,6 @@
                     <select class="form-control" name="category_id">
                     @foreach ($categories as $category)
                         <option value="{{$category->id}}">{{$category->name}}</option>
-
                     @endforeach
                     </select>
                 </div>
