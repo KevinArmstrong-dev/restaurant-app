@@ -59,7 +59,12 @@
                         </td>
                         <td>{{$menu->description}}</td>
                         <td>{{$menu->category->name}}</td>
-                        <td>{{$menu->id}}</td>
+                        <td>
+                            <a href="/management/menu/{{$menu->id}}/edit" class="btn btn-warning">Edit</a>
+                        </td>
+                        <td>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
