@@ -63,7 +63,11 @@
                             <a href="/management/menu/{{$menu->id}}/edit" class="btn btn-warning">Edit</a>
                         </td>
                         <td>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                        <form action="/management/menu/{{$menu->id}}" method="post">
+                            @csrf 
+                            @method('DELETE')
+                            <input type="submit" value="Delete" class="btn btn-danger">
+                        </form>  
                         </td>
                     </tr>
                 @endforeach

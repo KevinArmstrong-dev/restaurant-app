@@ -121,6 +121,14 @@ class MenuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $menu = Menu::find($id);
+        if($menu->image != "noimage.png"){
+            unlink(public_path('menu_images').'/'.$menu->image);
+        }
+        $menuName = $menu->name;
+        $menu->delete();
+        Session()->flash('status', $menuName. ' is deleted successfully');
+        return redirect('/management/menu');
+
     }
 }
